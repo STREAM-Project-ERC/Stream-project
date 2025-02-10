@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STREAM Team Links</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #e3f2fd; display: flex; }
+        .container { width: 50%; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin: 20px; }
+        .preview { width: 50%; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin: 20px; }
+        h1 { color: #01579b; }
+        .section { margin: 20px 0; padding: 15px; background: #81d4fa; border-radius: 5px; }
+        .file-entry { display: flex; align-items: center; justify-content: space-between; padding: 5px 10px; background: #b3e5fc; border-radius: 5px; margin: 5px 0; }
+        .file-name { flex-grow: 1; text-align: left; font-weight: bold; }
+        button { padding: 5px 10px; background: #0277bd; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px; }
+        button:hover { background: #01579b; }
+        iframe { width: 100%; height: 700px; border: none; }
+    </style>
+    <script>
+        function openSheet(url, mode) {
+            let finalUrl = url + (mode === 'edit' ? '?usp=edit' : '?usp=view');
+            document.getElementById('sheetPreview').src = finalUrl;
+        }
+        function openForm(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>STREAM Team Dashboard</h1>
+
+        <div class="section">
+            <h2>إدارة البيانات</h2>
+            <div class="file-entry">
+                <span class="file-name">DB of STREAM Team</span>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?usp=sharing', 'view')">👁 عرض</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit')">✏ تحرير</button>
+            </div>
+            <div class="file-entry">
+                <span class="file-name">Jeewa's Data</span>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/JeewaData', 'view')">👁 عرض</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/JeewaData', 'edit')">✏ تحرير</button>
+            </div>
+            <div class="file-entry">
+                <span class="file-name">Jeewa's Google Drive Folder</span>
+                <button onclick="openSheet('https://drive.google.com/drive/folders/1Y1E0NWbtQBp3On6koFPc_qx8LHrm053j', 'view')">👁 عرض</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>التقارير والتقييمات</h2>
+            <div class="file-entry">
+                <span class="file-name">تقرير البيانات اليومي</span>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1yWys_0QJ5k7KeatUrGgVWMoP9OC9HLw5QSEp6gFh-NM/edit?usp=sharing', 'view')">👁 عرض</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1yWys_0QJ5k7KeatUrGgVWMoP9OC9HLw5QSEp6gFh-NM/edit?gid=334470122#gid=334470122', 'edit')">✏ تحرير</button>
+            </div>
+            <div class="file-entry">
+                <span class="file-name">تسجيل حضور الفريق</span>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1yWys_0QJ5k7KeatUrGgVWMoP9OC9HLw5QSEp6gFh-NM/edit?usp=sharing', 'view')">👁 عرض</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1yWys_0QJ5k7KeatUrGgVWMoP9OC9HLw5QSEp6gFh-NM/edit?gid=530743466#gid=530743466', 'edit')">✏ تحرير</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>المشاريع والأنشطة</h2>
+            <div class="file-entry">
+                <span class="file-name">Gantt Chart</span>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1pZLNdYEGhSLqWVVtDW3I-vXZhtNUveANA3CXjpUB-bM/edit?usp=sharing', 'view')">👁 عرض</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1pZLNdYEGhSLqWVVtDW3I-vXZhtNUveANA3CXjpUB-bM/edit?gid=1115838130#gid=1115838130', 'edit')">✏ تحرير</button>
+            </div>
+            <div class="file-entry">
+                <span class="file-name">بنك أفكار- STREAM</span>
+                <button onclick="openForm('https://forms.gle/k5pHrj4Hr1jQmA4w5')">📋 Open Form</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1kguLbDXuALoMwGh5yKFQCz4jjBE5AcsotJqbd3AJ7YY/edit?usp=sharing', 'edit')">✏ View Sheet</button>
+            </div>
+            <div class="file-entry">
+                <span class="file-name">STREAM Got Talent Application</span>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/TalentApplication', 'view')">👁 عرض</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/TalentApplication', 'edit')">✏ تحرير</button>
+            </div>
+            <div class="file-entry">
+                <span class="file-name">Activities Stream</span>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/ActivitiesStream', 'view')">👁 عرض</button>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/ActivitiesStream', 'edit')">✏ تحرير</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview">
+        <h2>معاينة الملف</h2>
+        <iframe id="sheetPreview" src="" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
