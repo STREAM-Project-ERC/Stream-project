@@ -10,11 +10,52 @@
         .preview { width: 50%; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin: 20px; }
         h1 { color: #01579b; }
         .section { margin: 20px 0; padding: 15px; background: #81d4fa; border-radius: 5px; }
-        .file-entry { display: flex; align-items: center; justify-content: space-between; padding: 5px 10px; background: #b3e5fc; border-radius: 5px; margin: 5px 0; }
-        .file-name { flex-grow: 1; text-align: left; font-weight: bold; }
         button { padding: 5px 10px; background: #0277bd; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px; }
         button:hover { background: #01579b; }
         iframe { width: 100%; height: 700px; border: none;}
+        .file-entry {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #b3e5fc, #81d4fa);
+            border-radius: 8px;
+            margin: 8px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .file-entry:hover {
+            background: linear-gradient(135deg, #81d4fa, #4fc3f7);
+            transform: scale(1.02);
+        }
+        
+        .file-name {
+            flex-grow: 1;
+            text-align: left;
+            font-weight: bold;
+            font-size: 16px;
+            color: #01579b;
+        }
+        
+        .file-entry button {
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #0277bd, #039be5);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .file-entry button:hover {
+            background: linear-gradient(135deg, #01579b, #0288d1);
+            transform: scale(1.05);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
        .button-group {
         display: flex;
         justify-content: center;
@@ -87,7 +128,6 @@
     <div class="sub-group">
         <h3>📚 Trainings</h3>
         <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1MBuqKanbVdoiHqyWEx-IyEOFKLJqqNgdTmK8XF6q8qk/edit?gid=1848466529#gid=1848466529', 'edit')">📄 Trainings</button>
-       <!-- <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=0#gid=0', 'edit')">📄 Feedback and Evaluation</button>-->
     </div>
     <!-- Training Section -->
 </div>
@@ -95,10 +135,12 @@
             <h2>Data Mangment</h2>
             <div class="file-entry">
                 <span class="file-name">DB of STREAM Team</span>
+                <button onclick="openForm('https://forms.gle/FehsTcjSe3DcEkf19')">📋 Open Form</button>
                 <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit')">👁 Show</button>
             </div>
             <div class="file-entry">
                 <span class="file-name">Attendance Team</span>
+                <button onclick="openForm('https://forms.gle/wBJD4mVaV2i2ui979')">📋 Open Form</button>
                 <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1yWys_0QJ5k7KeatUrGgVWMoP9OC9HLw5QSEp6gFh-NM/edit?resourcekey=&gid=334470122#gid=334470122s', 'edit')">👁 Show</button>
             </div>
             
