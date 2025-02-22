@@ -5,128 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STREAM Team Links</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #e3f2fd; display: flex; }
-        .container { width: 50%; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin: 20px; }
-        .preview { width: 50%; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin: 20px; }
-        h1 { color: #01579b; }
-        .section { margin: 20px 0; padding: 15px; background: #81d4fa; border-radius: 5px; }
-        button { padding: 5px 10px; background: #0277bd; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px; }
-        button:hover { background: #01579b; }
-        iframe { width: 100%; height: 700px; border: none;}
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .container, .preview {
+            width: 48%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+        }
+
+        h1 {
+            color: #01579b;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #81d4fa;
+            border-radius: 5px;
+        }
+
         .file-entry {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 15px;
+            padding: 8px 12px;
             background: linear-gradient(135deg, #b3e5fc, #81d4fa);
-            border-radius: 8px;
-            margin: 8px 0;
+            border-radius: 6px;
+            margin: 6px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
         }
-        
+
         .file-entry:hover {
             background: linear-gradient(135deg, #81d4fa, #4fc3f7);
             transform: scale(1.02);
         }
-        
+
         .file-name {
             flex-grow: 1;
             text-align: left;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             color: #01579b;
         }
-        
+
         .file-entry button {
-            padding: 8px 12px;
+            padding: 4px 8px; /* Reduced padding */
             background: linear-gradient(135deg, #0277bd, #039be5);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 4px; /* Smaller border radius */
             cursor: pointer;
-            font-size: 14px;
+            font-size: 11px; /* Smaller font size */
             font-weight: bold;
             transition: all 0.3s ease;
+            margin-left: 4px; /* Reduced margin */
         }
-        
+
         .file-entry button:hover {
             background: linear-gradient(135deg, #01579b, #0288d1);
             transform: scale(1.05);
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
 
-       .button-group {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 20px;
-         }
-    .button-group {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-bottom: 20px;
-        padding: 15px;
-        background: #e3f2fd;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .sub-group {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        padding: 15px;
-        background: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-    .sub-group h3 {
-        margin: 0;
-        font-size: 18px;
-        color: #01579b;
-    }
-    .button-group button {
-        padding: 12px 18px;
-        background: linear-gradient(135deg, #0277bd, #039be5);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        width: 180px;
-        text-align: center;
-    }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Reduced gap */
+            margin-bottom: 20px;
+            padding: 10px; /* Reduced padding */
+            background: #e3f2fd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .button-group button: hover {
-        background: linear-gradient(135deg, #01579b, #0288d1);
-        transform: scale(1.05);
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    }
-    .button-pair {
-        display: flex;
-        gap: 2px;  /* Reduce space between buttons */
-    }
-    
-    .button-pair button {
-        font-size: 12px;  /* Reduce text size slightly */
-        padding: 8px 12px;  /* Adjust padding */
-        border-radius: 5px 0 0 5px;  /* Rounded left for first button */
-    }
-    
-    .button-pair button:last-child {
-        border-radius: 0 5px 5px 0;  /* Rounded right for second button */
-    }
+        .sub-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px; /* Reduced gap */
+            padding: 10px; /* Reduced padding */
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
 
+        .sub-group h3 {
+            margin: 0;
+            font-size: 14px; /* Smaller font size */
+            color: #01579b;
+        }
+
+        .button-group button {
+            padding: 6px 10px; /* Reduced padding */
+            background: linear-gradient(135deg, #0277bd, #039be5);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 11px; /* Smaller font size */
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 120px; /* Reduced width */
+            text-align: center;
+        }
+
+        .button-group button:hover {
+            background: linear-gradient(135deg, #01579b, #0288d1);
+            transform: scale(1.05);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-pair {
+            display: flex;
+            gap: 2px;
+        }
+
+        .button-pair button {
+            font-size: 10px; /* Smaller font size */
+            padding: 4px 8px; /* Reduced padding */
+            border-radius: 4px 0 0 4px; /* Smaller border radius */
+        }
+
+        .button-pair button:last-child {
+            border-radius: 0 4px 4px 0; /* Smaller border radius */
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
     </style>
     <script>
         function openSheet(url, mode) {
             let finalUrl = url + (mode === 'edit' ? '?usp=edit' : '?usp=view');
             document.getElementById('sheetPreview').src = finalUrl;
         }
+
         function openForm(url) {
             window.open(url, '_blank');
         }
@@ -136,43 +166,49 @@
     <div class="container">
         <h1>STREAM Project</h1>
         <div class="button-group">
-    <div class="sub-group">
-        <h3>🏠 Home Page</h3>
-        <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1MBuqKanbVdoiHqyWEx-IyEOFKLJqqNgdTmK8XF6q8qk/edit?usp=sharing', 'edit')">📄 Main links</button>
-    </div>
-    <div class="sub-group">
-        <h3>📚 Trainings</h3>
-        <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1MBuqKanbVdoiHqyWEx-IyEOFKLJqqNgdTmK8XF6q8qk/edit?gid=1848466529#gid=1848466529', 'edit')">📄 Trainings</button>
-    </div>
-    <!-- Training Section -->
-</div>
+            <div class="sub-group">
+                <h3>🏠 Home Page</h3>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1MBuqKanbVdoiHqyWEx-IyEOFKLJqqNgdTmK8XF6q8qk/edit?usp=sharing', 'edit')">📄 Main Links</button>
+            </div>
+            <div class="sub-group">
+                <h3>📚 Trainings</h3>
+                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1MBuqKanbVdoiHqyWEx-IyEOFKLJqqNgdTmK8XF6q8qk/edit?gid=1848466529#gid=1848466529', 'edit')">📄 Trainings</button>
+            </div>
+        </div>
         <div class="section">
-            <h2>Data Mangment</h2>
+            <h2>Data Management</h2>
             <div class="file-entry">
                 <span class="file-name">DB of STREAM Team</span>
-                <button onclick="openForm('https://forms.gle/FehsTcjSe3DcEkf19')">📋 Open Form</button>
-                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit')">👁 Show</button>
+                <div class="button-pair">
+                    <button onclick="openForm('https://forms.gle/FehsTcjSe3DcEkf19')">📋 Form</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit')">👁 Show</button>
+                </div>
             </div>
             <div class="file-entry">
                 <span class="file-name">Attendance Team</span>
-                <button onclick="openForm('https://forms.gle/wBJD4mVaV2i2ui979')">📋 Open Form</button>
-                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1yWys_0QJ5k7KeatUrGgVWMoP9OC9HLw5QSEp6gFh-NM/edit?resourcekey=&gid=334470122#gid=334470122s', 'edit')">👁 Show</button>
+                <div class="button-pair">
+                    <button onclick="openForm('https://forms.gle/wBJD4mVaV2i2ui979')">📋 Form</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1yWys_0QJ5k7KeatUrGgVWMoP9OC9HLw5QSEp6gFh-NM/edit?resourcekey=&gid=334470122#gid=334470122s', 'edit')">👁 Show</button>
+                </div>
             </div>
-            
         </div>
         <div class="section">
             <h2>📚 Trainings</h2>
             <div class="file-entry">
                 <span class="file-name">Climate Change</span>
-                    <button onclick="openForm('https://forms.gle/mYSb33e7Mq8Zbrhr9')">📋 Open Form</button>
-                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit', 'edit')">✏ View Response</button>
+                <div class="button-pair">
+                    <button onclick="openForm('https://forms.gle/mYSb33e7Mq8Zbrhr9')">📋 Form</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit', 'edit')">✏ Responses</button>
                     <button onclick="openForm('https://forms.gle/Pzjht7iKmjPGPyFp6')">📋 Evaluate</button>
-                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1741086517#gid=1741086517', 'edit')">✏ View Evaluation</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1741086517#gid=1741086517', 'edit')">✏ Evaluation</button>
+                </div>
             </div>
             <div class="file-entry">
                 <span class="file-name">EVCA</span>
-                <button onclick="openForm('https://forms.gle/3LkayP8YP6rtmG1DA')">📋 Open Form</button>
-                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1890802351#gid=1890802351', 'edit')">👁 View Certificate</button>
+                <div class="button-pair">
+                    <button onclick="openForm('https://forms.gle/3LkayP8YP6rtmG1DA')">📋 Form</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1890802351#gid=1890802351', 'edit')">👁 Certificates</button>
+                </div>
             </div>
         </div>
         <div class="section">
@@ -182,19 +218,20 @@
                 <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1pZLNdYEGhSLqWVVtDW3I-vXZhtNUveANA3CXjpUB-bM/edit?gid=1115838130#gid=1115838130', 'edit')">👁 Show</button>
             </div>
             <div class="file-entry">
-                <span class="file-name">Bank for ideas</span>
-                <button onclick="openForm('https://forms.gle/k5pHrj4Hr1jQmA4w5')">📋 Open Form</button>
-                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1kguLbDXuALoMwGh5yKFQCz4jjBE5AcsotJqbd3AJ7YY/edit?resourcekey=&gid=1350472397#gid=1350472397', 'edit')">✏ View Sheet</button>
-
+                <span class="file-name">Bank for Ideas</span>
+                <div class="button-pair">
+                    <button onclick="openForm('https://forms.gle/k5pHrj4Hr1jQmA4w5')">📋 Form</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1kguLbDXuALoMwGh5yKFQCz4jjBE5AcsotJqbd3AJ7YY/edit?resourcekey=&gid=1350472397#gid=1350472397', 'edit')">✏ Sheet</button>
+                </div>
             </div>
             <div class="file-entry">
-                <span class="file-name">STREAM Got Talent Application</span>
-                <button onclick="openForm('https://forms.gle/k5pHrj4Hr1jQmA4w5')">📋 Open Form</button>
+                <span class="file-name">STREAM Got Talent</span>
+                <button onclick="openForm('https://forms.gle/k5pHrj4Hr1jQmA4w5')">📋 Form</button>
             </div>
             <div class="file-entry">
                 <span class="file-name">Stream Missions</span>
                 <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1bQ8PEFph3dWLd2RKRVGsamF_thmXzS0QrSJry825sI8/edit?gid=342416195#gid=342416195', 'edit')">👁 Show</button>
-         </div>
+            </div>
         </div>
     </div>
     <div class="preview">
