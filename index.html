@@ -106,6 +106,21 @@
         transform: scale(1.05);
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     }
+    .button-pair {
+        display: flex;
+        gap: 2px;  /* Reduce space between buttons */
+    }
+    
+    .button-pair button {
+        font-size: 12px;  /* Reduce text size slightly */
+        padding: 8px 12px;  /* Adjust padding */
+        border-radius: 5px 0 0 5px;  /* Rounded left for first button */
+    }
+    
+    .button-pair button:last-child {
+        border-radius: 0 5px 5px 0;  /* Rounded right for second button */
+    }
+
     </style>
     <script>
         function openSheet(url, mode) {
@@ -148,12 +163,15 @@
         <div class="section">
             <h2>📚 Trainings</h2>
             <div class="file-entry">
-                <span class="file-name">Climate Change</span>
-                <button onclick="openForm('https://forms.gle/mYSb33e7Mq8Zbrhr9')">📋 Open Form</button>
-                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1615654797#gid=1615654797', 'edit')">✏ View Responce</button>
-                <button onclick="openForm('https://forms.gle/Pzjht7iKmjPGPyFp6')">📋 Evaluate</button>
-                <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1741086517#gid=1741086517', 'edit')">✏ View Evaluation</button>
-                
+                <span class="file-name">Climate Change</span
+                <div class="button-pair">
+                    <button onclick="openForm('https://forms.gle/mYSb33e7Mq8Zbrhr9')">📋 Open Form</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit', 'edit')">✏ View Response</button>
+                </div>
+                 <div class="button-pair">
+                    <button onclick="openForm('https://forms.gle/Pzjht7iKmjPGPyFp6')">📋 Evaluate</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1741086517#gid=1741086517', 'edit')">✏ View Evaluation</button>
+                </div>
             </div>
             <div class="file-entry">
                 <span class="file-name">EVCA</span>
