@@ -152,13 +152,21 @@
         }
     </style>
     <script>
-        function openSheet(url, mode) {
+        function openSheet(url, mode, newTab = false) {
             let finalUrl = url + (mode === 'edit' ? '?usp=edit' : '?usp=view');
-            document.getElementById('sheetPreview').src = finalUrl;
+            if (newTab) {
+                window.open(finalUrl, '_blank');
+            } else {
+                document.getElementById('sheetPreview').src = finalUrl;
+            }
         }
-
-        function openForm(url) {
-            window.open(url, '_blank');
+    
+        function openForm(url, newTab = false) {
+            if (newTab) {
+                window.open(url, '_blank');
+            } else {
+                window.location.href = url;
+            }
         }
     </script>
 </head>
@@ -181,7 +189,10 @@
                 <span class="file-name">DB of STREAM Team</span>
                 <div class="button-pair">
                     <button onclick="openForm('https://forms.gle/FehsTcjSe3DcEkf19')">📋 Form</button>
-                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit')">👁 Show</button>
+                    <button onclick ="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit')"
+                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit', true); return false;">
+                        👁 Show
+                    </button>
                 </div>
             </div>
             <div class="file-entry">
