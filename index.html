@@ -170,13 +170,25 @@
         }
     
         function openDriveFile(fileId, newTab = false) {
-            let previewUrl = "https://drive.google.com/file/d/" + fileId + "/preview";
-            if (newTab) {
-                window.open(previewUrl, '_blank');
-            } else {
-                document.getElementById('sheetPreview').src = previewUrl;
-            }
+        let previewUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+        let viewUrl = `https://drive.google.com/file/d/${fileId}/view`;
+
+        if (newTab) {
+            window.open(viewUrl, '_blank');
+        } else {
+            document.getElementById('drivePreview').src = previewUrl;
         }
+    }
+
+    function openDriveFolder(folderId, newTab = false) {
+        let folderUrl = `https://drive.google.com/drive/folders/${folderId}`;
+
+        if (newTab) {
+            window.open(folderUrl, '_blank');
+        } else {
+            window.location.href = folderUrl;
+        }
+    }
     
         function openGoogleDoc(docId, newTab = false) {
             let docUrl = "https://docs.google.com/document/d/" + docId + "/preview";
@@ -252,10 +264,11 @@
              <div class="file-entry">
                 <span class="file-name">Media stream file</span>
                 <div class="button-pair">
-                    <button onclick="openDriveFolder('1Y1E0NWbtQBp3On6koFPc_qx8LHrm053j')"
-                            oncontextmenu="openDriveFolder('1Y1E0NWbtQBp3On6koFPc_qx8LHrm053j', true); return false;">
-                        📂 Open Drive File
-                    </button>
+                   <button onclick="openDriveFolder('1Y1E0NWbtQBp3On6koFPc_qx8LHrm053j')"
+                        oncontextmenu="openDriveFolder('1Y1E0NWbtQBp3On6koFPc_qx8LHrm053j', true); return false;">
+                    📁 Open Drive Folder
+                </button>
+
                 </div>
             </div>
         </div>
