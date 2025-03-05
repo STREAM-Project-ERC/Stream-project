@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STREAM Team Links</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -13,6 +14,7 @@
             justify-content: center;
             align-items: flex-start;
             padding: 20px;
+            margin: 0;
         }
 
         .container, .preview {
@@ -150,6 +152,87 @@
             border-radius: 10px;
             margin-top: 10px;
         }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #0277bd;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hamburger Menu */
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .container, .preview {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background: #0277bd;
+                padding: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
     </style>
     <script>
         function openSheet(url, mode, newTab = false) {
@@ -206,9 +289,26 @@
                 document.getElementById('sheetPreview').src = url;
             }
         }
+
+        // Hamburger Menu Toggle
+        document.querySelector('.menu-icon').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
     </script>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="menu-icon">&#9776;</div>
+        <div class="nav-links">
+            <a href="#data-management">Data Management</a>
+            <a href="#trainings">Trainings</a>
+            <a href="#projects">Projects</a>
+            <a href="#reports">Reports</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>STREAM Project</h1>
         <div class="button-group">
@@ -223,7 +323,9 @@
                   oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1MBuqKanbVdoiHqyWEx-IyEOFKLJqqNgdTmK8XF6q8qk/edit?gid=1848466529#gid=1848466529', 'edit', true); return false;">📄 Trainings</button>
             </div>
         </div>
-        <div class="section">
+
+        <!-- Data Management Section -->
+        <div class="section" id="data-management">
             <h2>Data Management</h2>
             <div class="file-entry">
                 <span class="file-name">DB of STREAM Team</span>
@@ -234,7 +336,8 @@
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit', true); return false;">👁 Show</button>
                 </div>
             </div>
-            <div class="file-entry">
+            <!-- Add more file entries here -->
+                                <div class="file-entry">
                 <span class="file-name">Attendance Team</span>
                 <div class="button-pair">
                     <button onclick="openForm('https://forms.gle/wBJD4mVaV2i2ui979')"
@@ -260,7 +363,9 @@
                 </div>
             </div>
         </div>
-        <div class="section">
+
+        <!-- Trainings Section -->
+        <div class="section" id="trainings">
             <h2>📚 Trainings</h2>
             <div class="file-entry">
                 <span class="file-name">Feedback & Evaluation</span>
@@ -269,6 +374,7 @@
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=0#gid=0', 'edit', true); return false;">👁 Show</button>
                 </div>
             </div>
+            <!-- Add more file entries here -->
             <div class="file-entry">
                 <span class="file-name">Trainings attendance</span>
                 <div class="button-pair">
@@ -297,9 +403,16 @@
                 <span class="file-name">EVCA</span>
                 <div class="button-pair">
                     <button onclick="openForm('https://forms.gle/3LkayP8YP6rtmG1DA')"
-                        oncontextmenu="openForm('https://forms.gle/3LkayP8YP6rtmG1DA', true); return false;">📋 Open Form</button>
+                        oncontextmenu="openForm('https://forms.gle/3LkayP8YP6rtmG1DA', true); return false;">📋Selection Team</button>
+                  <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1615654797#gid=1615654797', 'edit')"
+                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1615654797#gid=1615654797', 'edit', true); return false;">👁Responder Selection Team</button>
+
                     <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1890802351#gid=1890802351', 'edit')"
-                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1890802351#gid=1890802351', 'edit', true); return false;">👁 Online Certificates</button>
+                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1CEtUSeqPqvpvk8o0LnolqP9wVBz1WQgUn5xc6a3BmYo/edit?resourcekey=&gid=1890802351#gid=1890802351', 'edit', true); return false;">👁 Online Certificates IFRC</button>
+                  <button onclick="openForm('https://forms.gle/EbCtnxDfqQoTs98R9')"
+                        oncontextmenu="openForm('https://forms.gle/EbCtnxDfqQoTs98R9', true); return false;">📋 Evaluate</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1765156427#gid=1765156427', 'edit')"
+                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1765156427#gid=1765156427', 'edit', true); return false;">✏ Evaluation</button>
                 </div>
             </div>
             <div class="file-entry">
@@ -313,8 +426,30 @@
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1EKt_M5u3_47bcVRR70mYD2IgnESZNQWpRrwsKY9QhPY/edit?resourcekey=&gid=1705417818#gid=1705417818', 'edit', true); return false;" >✏ Responses</button>
                 </div>
             </div>
+          <div class="file-entry">
+                <span class="file-name">Nbs</span>
+                <div class="button-pair">
+                    <button onclick="openForm('https://docs.google.com/forms/d/1ykDxM2TOc6Y_kvCylyoL7yIb78t7hcFBJNLv85WtmTs/edit?ts=6759764e')"
+                       oncontextmenu="openForm('https://docs.google.com/forms/d/1ykDxM2TOc6Y_kvCylyoL7yIb78t7hcFBJNLv85WtmTs/edit?ts=6759764e', true); return false;" >📋Form Pre Test</button>
+                    <button onclick="openForm('https://docs.google.com/forms/d/1WUGCXGS-Lx8R3kIgXlPz7C18tXLtej_HjKTxjM8ZWfA/edit?ts=6759765d')"
+                       oncontextmenu="openForm('https://docs.google.com/forms/d/1WUGCXGS-Lx8R3kIgXlPz7C18tXLtej_HjKTxjM8ZWfA/edit?ts=6759765d', true); return false;" >📋Form Post Test</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1osAJ97hzTfEnWzDRjx0anuhA3EsqU081Btx07ZEaVPY/edit?resourcekey=&gid=1693334531#gid=1693334531', 'edit')"
+                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1osAJ97hzTfEnWzDRjx0anuhA3EsqU081Btx07ZEaVPY/edit?resourcekey=&gid=1693334531#gid=1693334531', 'edit', true); return false;" >✏ Responses</button>
+                </div>
+            </div>
+          <div class="file-entry">
+                <span class="file-name">WASH</span>
+                <div class="button-pair">
+                    <button onclick="openForm('https://docs.google.com/forms/d/1tKWu6dgZjozVPvRNE_riPbHvAlB0ty8QVtWrlehKnsE/preview')"
+                       oncontextmenu="openForm('https://docs.google.com/forms/d/1tKWu6dgZjozVPvRNE_riPbHvAlB0ty8QVtWrlehKnsE/preview', true); return false;" >📋Form Post Test</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1osAJ97hzTfEnWzDRjx0anuhA3EsqU081Btx07ZEaVPY/edit?gid=1812313486#gid=1812313486', 'edit')"
+                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1osAJ97hzTfEnWzDRjx0anuhA3EsqU081Btx07ZEaVPY/edit?gid=1812313486#gid=1812313486', 'edit', true); return false;" >✏ Responses</button>
+                </div>
+            </div>
         </div>
-        <div class="section">
+
+        <!-- Projects Section -->
+        <div class="section" id="projects">
             <h2>Projects & Activities</h2>
             <div class="file-entry">
                 <span class="file-name">Gantt Chart</span>
@@ -323,7 +458,8 @@
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1pZLNdYEGhSLqWVVtDW3I-vXZhtNUveANA3CXjpUB-bM/edit?gid=1115838130#gid=1115838130', 'edit', true); return false;">👁 Show</button>
                 </div>
             </div>
-            <div class="file-entry">
+            <!-- Add more file entries here -->
+          <div class="file-entry">
                 <span class="file-name">Bank for Ideas</span>
                 <div class="button-pair">
                     <button onclick="openForm('https://docs.google.com/forms/d/e/1FAIpQLSfqX08amqz6xYk5MqxeYQ5StIE1UDeiVZb581YMAs5R0y9N1Q/viewform')"
@@ -347,17 +483,24 @@
                 </div>
             </div>
         </div>
-        <div class="section">
+
+        <!-- Reports Section -->
+        <div class="section" id="reports">
             <h2>Reports</h2>
             <div class="file-entry">
-                <span class="file-name">Gantt Chart</span>
+                <span class="file-name">Q3. from Jan to March 2025 Report</span>
                 <div class="button-pair">
-                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1pZLNdYEGhSLqWVVtDW3I-vXZhtNUveANA3CXjpUB-bM/edit?gid=1115838130#gid=1115838130', 'edit')"
-                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1pZLNdYEGhSLqWVVtDW3I-vXZhtNUveANA3CXjpUB-bM/edit?gid=1115838130#gid=1115838130', 'edit', true); return false;">👁 Show</button>
-                </div>
+                    <button onclick="openGoogleDoc('1NDi02D6qXZgKXqpz4OLUPm5xeCuNu2BLDdcJ2jxccBw')"
+                              oncontextmenu="openGoogleDoc('1NDi02D6qXZgKXqpz4OLUPm5xeCuNu2BLDdcJ2jxccBw', true); return false;">
+                          📄 Open Report Word
+                      </button>
+
+                    </div>
             </div>
-            </div>
+        </div>
     </div>
+
+    <!-- Preview Section -->
     <div class="preview">
         <h2>File Preview</h2>
         <iframe id="sheetPreview" src="" allowfullscreen></iframe>
