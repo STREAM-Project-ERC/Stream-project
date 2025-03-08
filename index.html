@@ -194,7 +194,58 @@
             display: flex;
             gap: 20px;
         }
+        /* Grid Layout for Buttons */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .button-grid .file-entry {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #b3e5fc, #81d4fa);
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        .button-grid .file-entry:hover {
+            background: linear-gradient(135deg, #81d4fa, #4fc3f7);
+            transform: scale(1.02);
+        }
+        .button-grid .file-name {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: #01579b;
+            margin-bottom: 8px;
+        }
+        .button-grid .button-pair {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .button-grid .button-pair button {
+            padding: 4px 8px;
+            background: linear-gradient(135deg, #0277bd, #039be5);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
 
+        .button-grid .button-pair button:hover {
+            background: linear-gradient(135deg, #01579b, #0288d1);
+            transform: scale(1.05);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
@@ -203,9 +254,25 @@
                 padding: 10px;
             }
 
-            .container, .preview {
-                width: 100%;
-                margin: 5px 0;
+            /* Fixed Preview Section */
+            .preview {
+                position: fixed;
+                top: 80px; /* Adjust based on your navigation bar height */
+                right: 20px;
+                width: 48%; /* Match the original width */
+                height: calc(100vh - 100px); /* Adjust height to fit the viewport */
+                overflow-y: auto; /* Add scroll if content overflows */
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                padding: 20px;
+                z-index: 999; /* Ensure it stays above other content */
+            }
+
+            /* Adjust container width to accommodate fixed preview */
+            .container {
+                width: 48%;
+                margin-right: 52%; /* Ensure container doesn't overlap with preview */
             }
 
             .button-group {
@@ -289,22 +356,19 @@
                 document.getElementById('sheetPreview').src = url;
             }
         }
-
-        // Hamburger Menu Toggle
         document.querySelector('.menu-icon').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
     </script>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
         <div class="menu-icon">&#9776;</div>
         <div class="nav-links">
             <a href="#data-management">Data Management</a>
             <a href="#trainings">Trainings</a>
             <a href="#projects">Projects</a>
-            
+
         </div>
     </nav>
 
@@ -323,8 +387,6 @@
                   oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1MBuqKanbVdoiHqyWEx-IyEOFKLJqqNgdTmK8XF6q8qk/edit?gid=1848466529#gid=1848466529', 'edit', true); return false;">📄 Trainings</button>
             </div>
         </div>
-
-        <!-- Data Management Section -->
         <div class="section" id="data-management">
             <h2>Data Management</h2>
             <div class="file-entry">
@@ -336,7 +398,7 @@
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1Q01m6gRoTdxkX7r24OpFBREESNyKwF8vx9ok5x6B4Wo/edit?resourcekey=&gid=1697925605#gid=1697925605', 'edit', true); return false;">👁 Show</button>
                 </div>
             </div>
-            <!-- Add more file entries here -->
+
             <div class="file-entry">
                 <span class="file-name">Attendance Team</span>
                 <div class="button-pair">
@@ -372,7 +434,6 @@
             </div>
         </div>
 
-        <!-- Trainings Section -->
         <div class="section" id="trainings">
             <h2>📚 Trainings</h2>
             <div class="file-entry">
@@ -394,7 +455,8 @@
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1tdH-dJu8dmB5QKoUvi6ZOA1ApwJti6VSlBobSHAFbaA/edit?resourcekey=&gid=328208753#gid=328208753', 'edit', true); return false;">📅 Date Trainings</button>
                 </div>
             </div>
-            <div class="file-entry">
+            <div class="button-grid">
+              <div class="file-entry">
                 <span class="file-name">Climate Change</span>
                 <div class="button-pair">
                     <button onclick="openForm('https://forms.gle/mYSb33e7Mq8Zbrhr9')"
@@ -406,7 +468,9 @@
                     <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1741086517#gid=1741086517', 'edit')"
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1741086517#gid=1741086517', 'edit', true); return false;">✏ Evaluation</button>
                 </div>
+              </div>
             </div>
+          <div class="button-grid">
             <div class="file-entry">
                 <span class="file-name">EVCA</span>
                 <div class="button-pair">
@@ -422,7 +486,7 @@
                     <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1765156427#gid=1765156427', 'edit')"
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1tgtjghrdbosnDXKKiwMG49ewL_DWlDPyoJu-Qagl__0/edit?gid=1765156427#gid=1765156427', 'edit', true); return false;">✏ Evaluation</button>
                 </div>
-            </div>
+            </div></div>
             <div class="file-entry">
                 <span class="file-name">Orientation day</span>
                 <div class="button-pair">
@@ -455,8 +519,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Projects Section -->
         <div class="section" id="projects">
             <h2>Projects & Activities</h2>
             <div class="file-entry">
@@ -470,8 +532,7 @@
           <div class="file-entry">
                 <span class="file-name">Bank for Ideas</span>
                 <div class="button-pair">
-                    <button onclick="openForm('https://docs.google.com/forms/d/e/1FAIpQLSfqX08amqz6xYk5MqxeYQ5StIE1UDeiVZb581YMAs5R0y9N1Q/viewform')"
-                        oncontextmenu="openForm('https://forms.gle/k5pHrj4Hr1jQmA4w5', true); return false;">📋 Open Form</button>
+                  <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfqX08amqz6xYk5MqxeYQ5StIE1UDeiVZb581YMAs5R0y9N1Q/viewform', '_blank')">📋 Open Form</button>
                     <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1kguLbDXuALoMwGh5yKFQCz4jjBE5AcsotJqbd3AJ7YY/edit?resourcekey=&gid=1350472397#gid=1350472397', 'edit')"
                         oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1kguLbDXuALoMwGh5yKFQCz4jjBE5AcsotJqbd3AJ7YY/edit?resourcekey=&gid=1350472397#gid=1350472397', 'edit', true); return false;">✏ Sheet</button>
                 </div>
@@ -479,8 +540,9 @@
             <div class="file-entry">
                 <span class="file-name">STREAM Got Talent</span>
                 <div class="button-pair">
-                    <button onclick="openForm('https://docs.google.com/forms/d/e/1FAIpQLSeqVsUKOgXMtjxLMFwcWcnCXPgYcQ9udn7aoDk0F3oUqy6c1A/viewform')"
-                        oncontextmenu="openForm('https://docs.google.com/forms/d/e/1FAIpQLSeqVsUKOgXMtjxLMFwcWcnCXPgYcQ9udn7aoDk0F3oUqy6c1A/viewform', true); return false;">📋 Form</button>
+                    <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeqVsUKOgXMtjxLMFwcWcnCXPgYcQ9udn7aoDk0F3oUqy6c1A/viewform', '_blank')">📋 Open Form</button>
+                    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/1dTqOKzRASWr_A94zvvLeOuap4lwsVJI1XIwsbsx9ypM/edit?gid=1682412875#gid=1682412875', 'edit')"
+                        oncontextmenu="openSheet('https://docs.google.com/spreadsheets/d/1dTqOKzRASWr_A94zvvLeOuap4lwsVJI1XIwsbsx9ypM/edit?gid=1682412875#gid=1682412875', 'edit', true); return false;">👁 Show</button>
                 </div>
             </div>
             <div class="file-entry">
@@ -491,11 +553,9 @@
                 </div>
             </div>
         </div>
-
-        <!-- Reports Section -->
-
     </div>
 
+    <!-- Preview Section -->
     <!-- Preview Section -->
     <div class="preview">
         <h2>File Preview</h2>
